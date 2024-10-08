@@ -1,5 +1,6 @@
-import ballerina/io;
+import ballerina/http;
 
-public function main() {
-    io:println("Hello, World!");
+service /signup on new http:Listener(9090) {
+    resource function get .() returns error? {
+    }
 }
