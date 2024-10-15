@@ -1,40 +1,66 @@
-function SignUp() {
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-  
-      const formData = {
-        username: e.target.username.value,
-        phone: e.target.phone.value,
-        password: e.target.password.value,
-      };
-  
-      const response = await fetch("http://localhost:8080/signup/registerUser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+import React, { useState } from 'react';
+import axios from 'axios';
+import cors from 'cors';
+
+const Signup = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    if (!username || !password) {
+      setMessage("Please fill in both fields.");
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:8080', {
+        username,
+        password,
       });
-  
-      const result = await response.text();
-      alert(result);  // Show the result from the backend
-    };
-  
-    return (
-      <>
-        <div className="form">
-          <h1>Sign Up</h1>
-          <form onSubmit={handleSubmit}>
-            <input type="text" name="username" placeholder="Username" required /><br />
-            <input type="tel" name="phone" placeholder="Phone Number" /><br />
-            <input type="password" name="password" placeholder="Password" required /><br />
-            <input type="password" name="confirmPassword" placeholder="Confirm Password" required /><br />
-            <input type="submit" value="Sign Up" />
-          </form>
+
+      if (response.status === 200) {
+        setMessage("User signed up successfully");
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 409) {
+        setMessage("User already exists");
+      } else {
+        setMessage("Error occurred during signup");
+      }
+    }
+  };
+
+  return (
+    <div>
+      <h2>Sign Up</h2>
+      <form onSubmit={handleSignup}>
+        <div>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
         </div>
-      </>
-    );
-  }
-  
-  export default SignUp;
-  
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
+      {message && <p>{message}</p>}
+    </div>
+  );
+};
+
+export default Signup;
