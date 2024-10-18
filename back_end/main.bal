@@ -37,11 +37,11 @@ service / on new http:Listener(9091) {
 
     // Handle user signup
     resource function post signup(UserInput input) returns json|error {
-        // Check if the email already exists
+        
         mongodb:Collection user = check self.userDb->getCollection("user");
         
 
-        // If email doesn't exist, proceed to create the user without hashing the password
+      
         string id = uuid:createType1AsString();
         User newUser = {id, ...input}; // Store the password as is
         check user->insertOne(newUser);
@@ -51,14 +51,35 @@ service / on new http:Listener(9091) {
     // Handle user login
     resource function post login(LoginInput input) returns json|error {
         mongodb:Collection user = check self.userDb->getCollection("user");
-        User? foundUser = check user->findOne({email: input.Email, password: input.Password}); // Directly match the plain text password
+        User? foundUser = check user->findOne({email: input.Email, password: input.Password}); 
 
         if (foundUser is User) {
+            
             return {id: foundUser.id}; // Return user ID on successful login
         } else {
             return error("Invalid email or password"); // Return error message for failed login
         }
     }
+    //API donor
+    resource function post donor(donorInput input) returns json|error {
+       
+        mongodb:Collection user = check self.userDb->getCollection("donor");
+        
+
+        
+        string id = uuid:createType1AsString();
+        donor newdonor = {id, ...input}; // Store the password as is
+        check user->insertOne(newdonor);
+        return {id: id};
+    }
+    resource function get donors() returns json|error {
+    mongodb:Collection donorCollection = check self.userDb->getCollection("donor");
+
+    // Retrieve all donor documents from the collection
+    stream<donor, error?> donorStream = check donorCollection->find();
+    json[] donorList = check from donor d in donorStream select d.toJson();
+    return donorList;
+}
 
     // Add this function to your Ballerina service
     resource function get user(string id) returns User|error {
@@ -72,39 +93,20 @@ service / on new http:Listener(9091) {
         }
     }
 
-    resource function get donors() returns Donor[]|error {
-        // Get the "donors" collection
-        mongodb:Collection user = check self.userDb->getCollection("user");
-
-        // Query to fetch all donors
-        Donor[] donorList = check user->findOne({id:id}); // Empty query to fetch all documents
-
-        if (donorList is Donor[]) {
-            return donorList; // Return the list of donors
-        } else {
-            return error("No donors found"); // Return an error if no donors are found
-        }
-    }
-
+    
 }
 
 
 // UserInput type for creating new users
 public type UserInput record {|
       string fullName;
+      string dateOfBirth;
       string gender;
-      string bloodType;
       string phoneNumber;
       string email;
       string password;
       string address;  
-      string donatedBefore;
-      string lastDonationDate;
-      string weight;
-      string chronicConditions;
-      string vaccinations;
-      string bloodConditions;
-      string pregnant;
+      
 |};
 
 // LoginInput type for user login 
@@ -113,16 +115,20 @@ public type LoginInput record {|
     string Password;
 |};
 
-// User type which includes a unique ID 
-public type User record {|
-    readonly string id;
-    *UserInput;
-|};
-type Donor record {
-    string id;
+public type donorInput record {|
     string name;
     string bloodType;
     string location;
     string lastDonationDate;
     string contact;
-};
+
+|};
+// User type which includes a unique ID 
+public type User record {|
+    readonly string id;
+    *UserInput;
+|};
+public type donor record {|
+    readonly string id;
+    *donorInput;
+|};

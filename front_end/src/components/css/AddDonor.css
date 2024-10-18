@@ -1,0 +1,63 @@
+
+
+.blood-donation-form {
+    background-color: #FFE5CA;
+    border-radius: 15px;
+    padding: 30px;
+    width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* 3D effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    animation: form-fade-in 1s ease forwards;
+}
+
+.blood-donation-form:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.blood-donation-form h2 {
+    text-align: center;
+    color: #E74646;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #FA9884;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #FA9884;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    font-size: 14px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input:focus,
+select:focus {
+    border-color: #E74646;
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(231, 70, 70, 0.5);
+}
+
+button {
+    background-color: #E74646
+}

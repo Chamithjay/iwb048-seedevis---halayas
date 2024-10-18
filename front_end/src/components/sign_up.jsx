@@ -5,22 +5,14 @@ import './css/signUp.css';
 
 
 const SignupPage = () => {
-  const navigate = useNavigate(); // For navigation after successful signup
+  const navigate = useNavigate(); 
   const [fullName, setFullName] = useState('');
   const [gender, setGender] = useState('');
-  const [bloodType, setBloodType] = useState('');
   const [phoneNumber, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [address, setAddress] = useState('');
-  const [donatedBefore, setDonatedBefore] = useState('');
   const [dateOfBirth, setDOB] = useState('');
-  const [lastDonationDate, setLastDonatedDate] = useState('');
-  const [weight, setWeight] = useState('');
-  const [chronicConditions, setChronicconditions] = useState('');
-  const [vaccinations, setVaccinations] = useState('');
-  const [bloodConditions, setBloodconditions] = useState('');
-  const [pregnant, setPregnant] = useState('');
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -29,28 +21,15 @@ const SignupPage = () => {
   const handleSignup = async (event) => {
     event.preventDefault();
 
-    // Basic validation
     
-
-    // Validate email format (basic regex)
-   
-
-    // Prepare the user data for signup
     const userData = {
       fullName,
+      dateOfBirth,
       gender,
-      bloodType,
       phoneNumber,
       email,
       password,
-      address,  
-      donatedBefore,
-      lastDonationDate,
-      weight,
-      chronicConditions,
-      vaccinations,
-      bloodConditions,
-      pregnant
+      address
     };
 
     try {
@@ -84,8 +63,9 @@ const SignupPage = () => {
   };
 
   return (
+    <div className="sign-up">
     <form className="blood-donation-form" onSubmit={handleSignup}>
-      <h2>Blood Donation Registration Form</h2>
+      <h2>Sign Up to Vital Drop</h2>
 
       {/* Personal Information */}
       {errorMessage && <p className="text-red-500 text-center">{errorMessage}</p>}
@@ -129,25 +109,7 @@ const SignupPage = () => {
           </select>
         </label>
 
-        <label>
-          Blood Type:
-          <select
-            name="bloodType"
-            value={bloodType}
-            onChange={(event) => setBloodType(event.target.value)}
-            required
-          >
-            <option value="">Select Blood Type</option>
-            <option value="A+">A+</option>
-            <option value="A-">A-</option>
-            <option value="B+">B+</option>
-            <option value="B-">B-</option>
-            <option value="O+">O+</option>
-            <option value="O-">O-</option>
-            <option value="AB+">AB+</option>
-            <option value="AB-">AB-</option>
-          </select>
-        </label>
+       
 
         <label>
           Phone Number:
@@ -193,102 +155,9 @@ const SignupPage = () => {
         </label>
       </div>
 
-      {/* Donation Information */}
-      <div className="form-section">
-        <label>
-          Have you donated before?
-          <select
-            name="donatedBefore"
-            value={donatedBefore}
-            onChange={(event) => setDonatedBefore(event.target.value)}
-            required
-          >
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </label>
-
-        {/* Conditional Last Donation Date */}
-        {donatedBefore === "yes" && (
-          <label>
-            Date of Last Donation:
-            <input
-              type="date"
-              name="lastDonationDate"
-              value={lastDonationDate}
-              onChange={(event) => setLastDonatedDate(event.target.value)}
-              required
-            />
-          </label>
-        )}
-      </div>
 
       {/* Eligibility (Health) */}
-      <div className="form-section">
-        <h3>Health Information</h3>
-        <label>
-          Weight (kg):
-          <input
-            type="number"
-            name="weight"
-            value={weight}
-            onChange={(event) => setWeight(event.target.value)}
-            required
-          />
-        </label>
-
-
-        <label>
-          Do you have any chronic conditions?
-          <input
-            type="text"
-            name="chronicConditions"
-            value={chronicConditions}
-            onChange={(event) => setChronicconditions(event.target.value)}
-          />
-        </label>
-
-        <label>
-          Have you had any vaccinations in the past 4 weeks?
-          <select
-            name="vaccinations"
-            value={vaccinations}
-            onChange={(event) => setVaccinations(event.target.value)}
-          >
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </label>
-
-        <label>
-          Have you been diagnosed with any blood-related conditions (anemia,
-          etc.)?
-          <input
-            type="text"
-            name="bloodConditions"
-            value={bloodConditions}
-            onChange={(event) => setBloodconditions(event.target.value)}
-          />
-        </label>
-
-
-        <label>
-          Are you pregnant or have you recently given birth?
-          <select
-            name="pregnant"
-            value={pregnant}
-            onChange={(event) => setPregnant(event.target.value)}
-          >
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            <option value="na">Not Applicable</option>
-          </select>
-        </label>
-      </div>
-
+     
       {/* Consent */}
       <div className="form-section">
         <label>
@@ -300,22 +169,15 @@ const SignupPage = () => {
           I agree to the terms and conditions.
         </label>
 
-        <label>
-          <input
-            type="checkbox"
-            name="shareInfo"
-            required
-          />
-          I agree to share my information with health organizations.
-        </label>
-
        
 
       </div>
 
       <button type="submit">Submit</button>
-      If you already have an account <button><Link href="/login">Login</Link></button>
+      
     </form>
+    If you already have an account <button><Link href="/login">Login</Link></button>
+    </div>
     
 
   );

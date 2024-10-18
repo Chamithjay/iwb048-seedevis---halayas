@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/card.css'; // Optional: If you want to add custom CSS for styling
+import './css/card.css'; 
 
 const Card = ({ donor }) => {
     
