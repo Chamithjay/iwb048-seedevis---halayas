@@ -1,0 +1,15 @@
+body{
+    background-color:aliceblue;
+}
+.login{
+    background-color: #292D30;
+    width: 80vh;
+    padding:15%;
+    border-radius: 30px;
+    /* Adding a radial gradient box shadow */
+    box-shadow: 0 0 15px 15px rgb(186, 24, 27, 0.5);
+    
+    /* Optionally, you can add a radial gradient on the background to blend it into the login box */
+    
+
+}
