@@ -29,7 +29,7 @@ mongo:Client mongoClient = check new("mongodb://localhost:27017" "donorDB");
 <p>6. Run the Ballerina service:</p>
 
 ```
-ballerina run main.bal
+ballerina run 
 ```
 
 <p>7. Open a new terminal window and navigate to the frontend directory:</p>
