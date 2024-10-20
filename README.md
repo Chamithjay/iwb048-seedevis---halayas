@@ -1,82 +1,54 @@
-2. Install Frontend Dependencies
+<h1 align="center" id="title">Vital Drop</h1>
 
-Navigate to the frontend directory and install the dependencies:
+<p id="description">This project is about connecting Blood donors with people who are in need with Blood efficiently.</p>
 
-bash
+<h2>🛠️ Installation Steps:</h2>
 
-cd frontend
-npm install
-# or
-yarn install
+<p>1. Navigate to the backend directory:</p>
 
-3. Install Ballerina Dependencies
+```
+cd back_end
+```
 
-Navigate to the backend directory and install any required Ballerina modules:
+<p>2. Open the back_end/main.bal file and configure the MongoDB connection string and credentials</p>
 
-bash
+```
+mongo:Client mongoClient = check new("mongodb://localhost:27017" "donorDB");
 
-cd ../backend
-ballerina pull
+```
 
-Running the Backend (Ballerina)
+<p>3. Change the port in main.bal</p>
 
-To start the Ballerina service, follow these steps:
+```
+ cors: {allowOrigins: [*ADD YOUR PORT*]"]}
+```
+<p>4. Create a database in MongoDB named "vitalDrop"</p>
 
-    Navigate to the backend directory:
+<p>5. Create two collections named "user" &amp; "donor"</p>
 
-    bash
+<p>6. Run the Ballerina service:</p>
 
-cd backend
+```
+ballerina run main.bal
+```
 
-Open the backend/main.bal file and configure the MongoDB connection string and credentials if necessary. For example:
+<p>7. Open a new terminal window and navigate to the frontend directory:</p>
 
-ballerina
+```
+cd front_tend
+```
 
-mongo:Client mongoClient = check new("mongodb://localhost:27017", "donorDB");
+<p>8. Start the React+vite development server:</p>
 
-Run the Ballerina service:
+```
+npm run dev
+```
 
-bash
+  
+<h2>💻 Built with</h2>
 
-    ballerina run main.bal
+Technologies used in the project:
 
-    This should start the backend server on the default port (e.g., 9091).
-
-Running the Frontend (React)
-
-To run the React frontend application:
-
-    Open a new terminal window and navigate to the frontend directory:
-
-    bash
-
-cd frontend
-
-Start the React development server:
-
-bash
-
-    npm start
-    # or
-    yarn start
-
-    The application will open in your browser at http://localhost:3000.
-
-Environment Variables
-
-You may need to configure the following environment variables:
-
-    MongoDB URI: Update the MongoDB connection string in the Ballerina backend (backend/main.bal).
-    Backend API URL: Update the backend URL in the frontend React application (frontend/src/config.js) if it differs from http://localhost:9091.
-
-js
-
-// Example in config.js
-export const API_URL = "http://localhost:9091";
-
-Using the Application
-
-Once both the backend and frontend are running:
-
-    The React frontend can be accessed at http://localhost:3000.
-    The backend (API) runs on http://localhost:9091, where it handles requests from the frontend.
+*   Ballerina
+*   React.js
+*   MongoDB
