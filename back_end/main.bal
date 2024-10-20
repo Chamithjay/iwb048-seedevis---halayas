@@ -4,8 +4,8 @@ import ballerina/uuid;
 import ballerinax/mongodb;
 
 // MongoDB configuration
-configurable string host = "localhost";
-configurable int port = 27017;
+configurable string host = "localhost";//add your host
+configurable int port = 27017;//add your port
 
 final mongodb:Client mongoDb = check new ({
     connection: {
@@ -19,7 +19,7 @@ final mongodb:Client mongoDb = check new ({
 // Define CORS configuration
 @http:ServiceConfig {
     cors: {
-        allowOrigins: ["http://localhost:5173"],
+        allowOrigins: ["http://localhost:5173"],//add your port
         allowHeaders: ["REQUEST_ID", "Content-Type"],
         exposeHeaders: ["RESPONSE_ID"],
         allowMethods: ["GET", "POST", "OPTIONS"],
@@ -31,14 +31,14 @@ service / on new http:Listener(9091) {
     private final mongodb:Database userDb;
 
     function init() returns error? {
-        self.userDb = check mongoDb->getDatabase("vitalDrop");
+        self.userDb = check mongoDb->getDatabase("vitalDrop");//create your database
         io:println("MongoDB connected to UserDb");
     }
 
     // Handle user signup
     resource function post signup(UserInput input) returns json|error {
         
-        mongodb:Collection user = check self.userDb->getCollection("user");
+        mongodb:Collection user = check self.userDb->getCollection("user");//create your collection
         
 
       
@@ -63,7 +63,7 @@ service / on new http:Listener(9091) {
     //API donor
     resource function post donor(donorInput input) returns json|error {
        
-        mongodb:Collection user = check self.userDb->getCollection("donor");
+        mongodb:Collection user = check self.userDb->getCollection("donor");//create your collection
         
 
         
