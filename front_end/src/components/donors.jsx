@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Card from './card'; 
 import './css/card.css'; 
+import Navbar from './navbar';
+import Filter from './filters';
 
 const DonorList = () => {
     const [donors, setDonors] = useState([]);
@@ -21,6 +23,9 @@ const DonorList = () => {
     }, []); 
 
     return (
+        <div>
+            <Navbar />
+            <Filter />
         <div className="donor-list">
             {donors.length > 0 ? (
                 donors.map((donor) => (
@@ -29,6 +34,7 @@ const DonorList = () => {
             ) : (
                 <p>Loading donors...</p>
             )}
+        </div>
         </div>
     );
 };

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
+
+.about-page {
+  font-family: "Arima", system-ui;
+  background-color: #FFF;
+  background-image: url('C:\UOM- IT\Ballerina\VitalDrop\front_end\src\assets\background3.jpg'); /* Ensure correct path */
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  padding: 20px;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px; /* Reduce padding to make blocks smaller */
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 229, 202, 0.40); /* More transparency */
+  transform: translateY(40px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease; 
+}
+
+.block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.block.left {
+  flex-direction: row;
+}
+
+.block.right {
+  flex-direction: row-reverse;
+  background-color: rgba(249, 169, 153, 0.30); /* Slightly transparent */
+}
+
+.text-content {
+  flex: 1;
+  text-align: center;
+  margin: 20px;
+  font-size: 40px;
+  font-weight: 800; /* Regular weight for content */
+}
+
+.image-content {
+  flex: 1;
+  text-align: center;
+  margin: 1px;
+}
+
+.image-content img {
+  width: 100%;
+  height: auto;
+  max-height: 400px; 
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.image-content img:hover {
+  transform: scale(1.01);
+}
+
+.about-heading {
+  color: #5a0b0b;
+  font-size: 80px; /* Larger size for main heading */
+  font-weight: 900; /* Make heading bold */
+  text-align: center;
+  transition: transform 0.3s ease-in-out; /* Add transition effect */
+}
+
+.section-heading {
+  color: #1b1a1a;
+  font-size: 60px; /* Larger size for subtopics */
+  margin-top: 10px;
+  font-weight: 700; /* Medium weight for subtopics */
+  text-align: center;
+  transition: font-weight 0.3s ease, transform 0.5s ease; /* Transition for hover effects */
+}
+
+.section-heading:hover {
+  font-weight: 800; /* Bold on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.about-description {
+  color: #292929;
+  line-height: 1.8;
+  font-size: 22px; 
+}
+
+.block::before,
+.block::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  left: 0;
+}
+
+.block::before {
+  top: 0;
+}
+
+.block::after {
+  bottom: 0;
+}
+
+/* Add transition effects to the heading */
+.about-heading:hover {
+  transform: scale(1.1);
+}

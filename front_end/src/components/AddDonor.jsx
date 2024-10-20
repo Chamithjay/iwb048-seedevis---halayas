@@ -40,7 +40,7 @@ const AddDonor = () => {
           const errorData = await response.json();
           throw new Error(errorData.message || 'Add Donor failed! Please try again.');
         }
-        navigate('/login');
+        navigate('/donors');
   
         const data = await response.json();
         setSuccessMessage("Add donor successful! User ID: " + data.id);

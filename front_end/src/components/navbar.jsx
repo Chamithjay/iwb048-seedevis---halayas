@@ -18,7 +18,7 @@ const NavBar = () => {
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/donors">Donors</a></li>
-            <li><a href="">AboutUs</a></li>
+            <li><a href="/about">AboutUs</a></li>
         </ul>
 
         <div className='search-box'>

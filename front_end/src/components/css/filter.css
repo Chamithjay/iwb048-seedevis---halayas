@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins:wght@200;300;400&display=swap');
+
+.filter-container {
+  background-color: #FA9884;
+  border: 5px solid #FA9884;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.filter-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.filter-group-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  font-size: 16px;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s;
+  font-family:'Space Mono', monospace ;
+}
+
+.filter-select option {
+    font-family:'Space Mono', monospace ;
+  border-radius: 50px;
+
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #77B0AA;
+  box-shadow: 0 0 5px rgba(119, 176, 170, 0.5);
+}
+
+.filter-select:hover {
+  border-color: #003C43;
+}
+
+.filter-group label {
+  font-size: 1em;
+  color: #003C43;
+}
+
+.filter-group select {
+  font-family: 'Poppins', sans-serif;
+}
+
+.filter-group select:hover {
+  cursor: pointer;
+}
+
+.filter-group select:focus {
+  outline: none;
+}
+
+.filter-container h2 {
+  font-family: 'Josefin Sans', sans-serif;
+}
