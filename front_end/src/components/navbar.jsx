@@ -1,21 +1,38 @@
-import React from 'react';
-import './css/Navbar.css'; 
+import React from 'react'
+import './CSS/NavBar.css'
+import Logo from './images/logo.png'
+import Search from './images/search.svg'
+import Logo2 from './images/logoimg.png'
 
-const Navbar = () => {
+
+import { Link } from 'react-router-dom'
+
+const NavBar = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">
-        <h1>Blood Donation</h1>
-      </div>
-      <ul className="navbar-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about-us">About Us</a></li>
-        <li><a href="#donors">Donors</a></li>
-        <li><a href="#sign-up">Sign Up</a></li>
-        <li><button className="donate-button">Donate</button></li>
-      </ul>
-    </nav>
-  );
-};
+    <div className='navbar'>
+        <div className='logo'>
+            <img id ="img1" src={Logo2} alt='logo' />
+            <img  id="img2" src={Logo} alt='logo' />
+        </div>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/donors">Donors</a></li>
+            <li><a href="">AboutUs</a></li>
+        </ul>
 
-export default Navbar;
+        <div className='search-box'>
+            <img src={Search} alt='search' />
+            <input type="text" placeholder='Search' />
+
+        </div>
+        <div className='navbar-buttons'>
+            <Link to="/add-donor"><button  className='register-btn' >Donate</button></Link>
+            <Link to="/signup"><button  className='register-btn' >Sign Up</button></Link>
+        </div>
+        
+    </div>
+  )
+}
+
+export default NavBar

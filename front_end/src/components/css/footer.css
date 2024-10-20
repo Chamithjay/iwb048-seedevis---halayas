@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.footer {
+    background-color: #e74646;
+    color: black;
+    padding: 40px 0;
+    font-family: 'Poppins', sans-serif;
+
+  }
+  
+  .footer .container {
+    
+    justify-content: center;
+    align-items: center;   
+    background-color: #FFE5CA;
+    width: 100%;
+    box-shadow: none;
+    padding:30px 40px;
+    border-radius: 20px;
+  }
+  
+  .footer .footer-logo {
+    font-size: 1.2rem;
+    color: #fff;
+    display: flex;
+  }
+  
+  .footer .footer-links{
+    
+    list-style: none;
+    padding: 0;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+  .footer .footer-social {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+  
+  .footer .footer-links li,
+  .footer .footer-social li {
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    
+  }
+  
+  .footer .footer-links p a{
+    color: black;
+    font-family: 'Space Mono';
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+  }
+  .footer .footer-social li a {
+    color: black;
+    font-family: 'Space Mono';
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+  }
+  
+  .footer .footer-links p a:hover,
+  .footer .footer-social li a:hover {
+    color: grey;
+    font-family: 'Space Mono';
+    
+  }
+  
+  .footer .footer-social li a {
+    font-size: 1.2rem;
+  }
+  h5{
+
+    color: black;
+    font-family: 'Space Mono';
+    font-weight: bold;
+  }
+  h4{
+    font-size: 1.2rem;
+    color: black;
+    font-family: 'Space Mono';
+    font-weight: bold;
+  }
+  .footer-logo #trash{
+    margin-left: 0%;
+    margin-right: 10px;
+  }
+
+  .contact-info{
+    display: flex;
+    flex-direction: column;
+  }
+  .footer p{
+    text-align: left;
+    
+  }
+.footer li{
+    text-align: left;
+    
+}

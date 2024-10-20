@@ -59,9 +59,10 @@ const AddDonor = () => {
 
     return (
         <div className="blood-donation-form">
-            <h2>Blood Donation Form</h2>
             <form onSubmit={handleSubmit}>
-                <div className="form-section">
+            
+                <div className="form-section1">
+                <h2>Be a Donor...</h2>
                     <label htmlFor="name">Full Name</label>
                     <input
                         type="text"
@@ -71,9 +72,7 @@ const AddDonor = () => {
                         onChange={(event) => setName(event.target.value)}
                         required
                     />
-                </div>
-
-                <div className="form-section">
+                
                     <label htmlFor="bloodType">Blood Type</label>
                     <select
                         id="bloodType"
@@ -92,9 +91,7 @@ const AddDonor = () => {
                         <option value="O+">O+</option>
                         <option value="O-">O-</option>
                     </select>
-                </div>
-
-                <div className="form-section">
+                
                     <label htmlFor="location">Location</label>
                     <input
                         type="text"
@@ -104,9 +101,7 @@ const AddDonor = () => {
                         onChange={(event) => setLocation(event.target.value)}
                         required
                     />
-                </div>
-
-                <div className="form-section">
+              
                     <label htmlFor="lastDonationDate">Last Donation Date</label>
                     <input
                         type="date"
@@ -116,9 +111,7 @@ const AddDonor = () => {
                         onChange={(event) => setLastDonatedDate(event.target.value)}
                         required
                     />
-                </div>
-
-                <div className="form-section">
+                
                     <label htmlFor="contact">Contact Number</label>
                     <input
                         type="tel"
@@ -128,9 +121,10 @@ const AddDonor = () => {
                         onChange={(event) => setContact(event.target.value)}
                         required
                     />
-                </div>
+                
 
-                <button type="submit">Submit</button>
+                <button type="submit">Donate</button>
+                </div>
             </form>
         </div>
     );

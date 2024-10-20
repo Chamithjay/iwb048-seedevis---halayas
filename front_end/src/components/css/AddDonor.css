@@ -1,63 +1,73 @@
-
-
 .blood-donation-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     background-color: #FFE5CA;
-    border-radius: 15px;
-    padding: 30px;
-    width: 700px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* 3D effect */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-    animation: form-fade-in 1s ease forwards;
-}
-
-.blood-donation-form:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    background-image: url('../images/back2.png'); /* Use the same background image or another */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 20px;
 }
 
 .blood-donation-form h2 {
-    text-align: center;
-    color: #E74646;
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-family: 'Space Mono', monospace;
+    color: #000;
 }
 
-.form-section {
-    margin-bottom: 20px;
-}
 
+
+.form-section1 {
+    width: 50vw;
+    display: flex;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+
+}
 label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 8px;
     color: #FA9884;
     font-weight: bold;
+    font-family: 'Space Mono', monospace;
 }
 
-input[type="text"],
-input[type="date"],
-input[type="email"],
-input[type="tel"],
-select {
-    width: 100%;
+input, select {
+    margin-top: 5px;
     padding: 10px;
-    border: 1px solid #FA9884;
     border-radius: 5px;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-    font-size: 14px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-input:focus,
-select:focus {
-    border-color: #E74646;
-    outline: none;
-    box-shadow: 0px 0px 8px rgba(231, 70, 70, 0.5);
+    border: 1px solid #FA9884;
+    width: 100%;
+    font-family: 'Space Mono', monospace;
 }
 
 button {
-    background-color: #E74646
+    background-color: #E74646;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+}
+
+button:hover {
+    background-color: #D83D3D; /* Darker shade for hover effect */
+}
+
+@media (max-width: 768px) {
+    .blood-donation-form {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    form {
+        width: 100%; /* Full width for smaller screens */
+    }
 }

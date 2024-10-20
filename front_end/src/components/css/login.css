@@ -44,6 +44,25 @@
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
   }
+  input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #FA9884;
+    width: 100%;
+    font-family:'Space Mono', monospace ; 
+  }
+  
+  button {
+    background-color: #E74646;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+  }
   
   @media (max-width: 768px) {
     .image-section {

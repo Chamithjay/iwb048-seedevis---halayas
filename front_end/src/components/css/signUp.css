@@ -18,7 +18,7 @@
   background-color: #FFE5CA;
     background-image: url('../images/back.png'); 
     background-position: center;
-    background-repeat:repeat;
+    background-repeat:no-repeat;
     background-attachment: fixed; 
 }
 
@@ -71,12 +71,12 @@ label {
   font-weight: bold;
   font-family: 'Space Mono', monospace;
 }
-input {
+.signup-page input {
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #FA9884;
-  width: 100%;
+  width: 36vw;
   font-family:'Space Mono', monospace ; 
 }
 
