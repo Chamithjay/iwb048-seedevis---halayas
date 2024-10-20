@@ -4,6 +4,7 @@ import Home from './components/home';
 import Login from './components/login';
 import AddDonor from './components/AddDonor';
 import DonorList from './components/donors';
+import Navbar from './components/navbar';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/add-donor" element={<AddDonor />} />
         <Route path="/donors" element={<DonorList />} />
+        <Route path="/navbar" element={<Navbar />} />
         {/* You can add other routes here for different pages */}
       </Routes>
     </Router>

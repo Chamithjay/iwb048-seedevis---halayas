@@ -100,12 +100,10 @@ service / on new http:Listener(9091) {
 // UserInput type for creating new users
 public type UserInput record {|
       string fullName;
-      string dateOfBirth;
-      string gender;
       string phoneNumber;
       string email;
       string password;
-      string address;  
+  
       
 |};
 
