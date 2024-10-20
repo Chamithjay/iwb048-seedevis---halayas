@@ -1,7 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/login.css';
-import React, {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useState}from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Blood from './images/signUp.png';
+
 
 const Login=()=>{
     const [Email, setEmail] = useState('');
@@ -46,38 +48,48 @@ const Login=()=>{
           } 
     };
     return(
-        <div className="login">
-            <form onSubmit={handleLogin}>
-            {errorMessage && <p className="text-red-500 text-center">{errorMessage}</p>}
-          {successMessage && <p className="text-green-500 text-center">{successMessage}</p>}
+      <div className="login-page">
+      <div className="login-container">
+          <div className="form-section">
+              <h2>Login</h2>
+              {errorMessage && <p className="text-red-500 text-center">{errorMessage}</p>}
+              {successMessage && <p className="text-green-500 text-center">{successMessage}</p>}
 
-                <div class="form-group">
-                    <label for="InputEmail1">Email address:</label>
-                    <input 
-                    type="email"
-                    class="form-control" 
-                    id="InputEmail1"  
-                    placeholder="Enter email"
-                    value={Email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    required
-                    />
-                </div>
-                <div class="form-group">
-                    <label for="InputPassword1">Password</label>
-                    <input 
-                    type="password" 
-                    class="form-control" 
-                    id="InputPassword1" 
-                    placeholder="Password"
-                    value={Password}
-                    onChange={(event) => setPassword(event.target.value)}
-                    required
-                    />
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
+              <form onSubmit={handleLogin}>
+                  <div>
+                      <label htmlFor="InputEmail1">Email address:</label>
+                      <input
+                          type="email"
+                          id="InputEmail1"
+                          placeholder="Enter email"
+                          value={Email}
+                          onChange={(event) => setEmail(event.target.value)}
+                          required
+                      />
+                  </div>
+                  <div>
+                      <label htmlFor="InputPassword1">Password:</label>
+                      <input
+                          type="password"
+                          id="InputPassword1"
+                          placeholder="Password"
+                          value={Password}
+                          onChange={(event) => setPassword(event.target.value)}
+                          required
+                      />
+                  </div>
+                  <br />
+                  <button type="submit">Submit</button>
+              </form>
+              <p>
+              If you don't have an account <Link to="/signup">Sign Up</Link>
+            </p>
+          </div>
+          <div className="image-section">
+              <img src={Blood} alt="Donation Image" />
+          </div>
+      </div>
+  </div>
     )
  
 }
